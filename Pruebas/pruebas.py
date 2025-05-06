@@ -1,7 +1,6 @@
 import pandas as pd
 import scipy.stats as stats
 
-# Cargar el dataset
 file_path = 'customer_shopping_data.csv'
 df = pd.read_csv(file_path)
 
@@ -20,13 +19,16 @@ anova_result = stats.f_oneway(
     df[df['rango'] == '61-70']['price']
 )
 
+#Realizamos la prueba de varianza (ANOVA para los compas)
 print("ANOVA Result: F-statistic = ", anova_result.statistic, "p-value = ", anova_result.pvalue)
 
-# Comparar dos grupos (por ejemplo, edad menor de 40 años y mayor de 40 años)
+# Aqui comparamos dos grupos (por ejemplo, edad menor de 40 años y mayor de 40 años)
 group_1 = df[df['age'] < 40]['price']
 group_2 = df[df['age'] >= 40]['price']
 
-# Realizar el T-test
+# Realizamos el T-test
 t_stat, p_value = stats.ttest_ind(group_1, group_2)
+
+
 
 print("T-test Result: t-statistic = ", t_stat, "p-value = ", p_value)
