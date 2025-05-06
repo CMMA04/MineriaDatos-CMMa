@@ -30,5 +30,4 @@ group_2 = df[df['age'] >= 40]['price']
 t_stat, p_value = stats.ttest_ind(group_1, group_2)
 
 
-
 print("T-test Result: t-statistic = ", t_stat, "p-value = ", p_value)
